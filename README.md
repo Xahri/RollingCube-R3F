@@ -2,6 +2,9 @@ This is a project made using React and React Three Fiber (R3F), <br>
 It's a game where you play as a cube and you can roll in 4 directions, <br>
 You should roll to the spawining splatforms before the platform under you is gone. <br>
 
+[Rolling Cube Project Preview](https://rolling-cube.netlify.app)
+<br>
+
 
 # Getting Started with Create React App
 
