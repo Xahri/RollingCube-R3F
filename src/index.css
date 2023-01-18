@@ -1,13 +1,150 @@
-body {
+html,
+body,
+#root,
+.bg,
+canvas {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background: #202020;
+  color: rgb(255, 255, 255);
+}
+
+.bg {
+  position: absolute;
+  background: radial-gradient(at 50% 100%, #39323e 0%, #272730 40%, #171720 80%, #070710 100%);
+  /* background: radial-gradient(at 50% 100%, #93a6b2 0%, #8588a5 40%, #6f86a4 80%, #566ea5 100%); */
+}
+
+a {
+  color: rgb(252, 252, 252);
+}
+
+a {
+  pointer-events: all;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.Controls {
+  position: absolute;
+  top: 6%;
+  left: 4%;
+  letter-spacing: 0.08em;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 24;
+  font-family: 'Bebas Neue', cursive;
+  opacity: 72%;
+}
+
+.Score {
+  position: absolute;
+  top: 6%;
+  right: 4%;
+  letter-spacing: 0.04em;
+  color: white;
+  font-size: 1em;
+  font-weight: 24;
+  font-family: 'Bebas Neue', cursive;
+  opacity: 72%;
+  /* width: 40%; */
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: rgba(48, 48, 48, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  max-width: 80%;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 2400;
+  font-size:large;
+  letter-spacing:0.1vw;
+}
+
+img {
+  max-width: 240px;
+  max-height: 240px;
+  width: auto;
+  height: auto;
+}
+
+.show {
+  opacity: 0.8;
+  font-size: medium;
+}
+
+.check {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.startBtn {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 2400;
+  font-size:large;
+
+  background-color: rgba(72, 72, 72, 1);
+  border: 2px solid rgb(87, 87, 87);
+  border-radius: 10px;
+  color: white;
+  padding: 8px 20px;
+
+  transition: background-color 0.2s ease-in-out;
+}
+
+.startBtn:hover {
+  background-color: rgba(72, 72, 72, 0.8);
+  cursor: pointer;
+}
+
+.modal-overlay {
+  animation: fadeIn 0.5s ease;
+}
+
+.modal-content {
+  animation: slideUp 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }

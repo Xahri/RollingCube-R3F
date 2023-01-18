@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls, Stats } from "@react-three/drei";
+import { useState } from 'react'
 
-function App() {
+import Player from "./components/Player";
+import Platforms from './components/Platforms';
+import { Overlay } from './components/Overlay';
+import MyModal from './components/MyModal';
+
+export default function App() {
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <div className="bg" />
+      <Overlay />
+      {isModalOpen ? (
+        <MyModal setIsModalOpen={setIsModalOpen} />
+      ) : (
+        <div>
+          <div className="bg" />
+          <Canvas dpr={[1, 2]} camera={{ position: [500, 500, 500], near: 1, far: 4000 }} orthographic={ true } >
+            <Platforms />
+            <Player />
+            <OrbitControls />
+          </Canvas>
+          <Stats />
+          <Overlay />
+        </div>
+      )}
     </div>
   );
 }
-
-export default App;
